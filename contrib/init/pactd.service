@@ -1,0 +1,26 @@
+[Unit]
+Description=PACT's distributed currency daemon
+After=network.target
+
+[Service]
+User=pact
+Group=pact
+
+Type=forking
+PIDFile=/var/lib/pactd/pactd.pid
+
+ExecStart=/usr/bin/pactd -daemon -pid=/var/lib/pactd/pactd.pid \
+          -conf=/etc/pact/pact.conf -datadir=/var/lib/pactd
+
+ExecStop=-/usr/bin/pact-cli -conf=/etc/pact/pact.conf \
+         -datadir=/var/lib/pactd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

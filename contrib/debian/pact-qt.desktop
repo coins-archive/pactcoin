@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PACT
+Comment=PACT P2P Cryptocurrency
+Comment[fr]=PACT, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PACT, eşten eşe kriptografik sanal para birimi
+Exec=pact-qt %u
+Terminal=false
+Type=Application
+Icon=pact128
+MimeType=x-scheme-handler/pact;
+Categories=Office;Finance;
